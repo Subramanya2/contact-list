@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# React Contact List Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a single-page contact list application built with React. It's a personal project focused on creating a clean, responsive, and user-friendly interface for managing contacts.
 
-## Available Scripts
+### [Live Demo](https://my-new-contact-list.netlify.app)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **View Contacts**: See the complete list of contacts on load.
+* **Advanced Search**: Filter the list in real-time by typing a name, email, **or** phone number.
+* **Search Highlighting**: The matching text (name, email, or phone) is highlighted in yellow within the search results for clear visibility.
+* **Add Contact**: A toggleable form allows for adding new contacts to the list.
+* **Inline Form Validation**: The form provides real-time validation feedback.
+    * Name is required.
+    * Phone is required and must be exactly 10 digits.
+    * Email is optional.
+* **Toast Notifications**: Receive a non-intrusive "Contact added" notification upon successful submission.
+* **Responsive Design**: The layout adapts to mobile, tablet, and desktop screen sizes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## How to Run Locally
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Subramanya2/contact-list.git
+    cd react-contact-list
+    ```
 
-### `npm run build`
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3.  **Start the development server:**
+    ```bash
+    npm start
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The application will be running at `http://localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Design Choices & Assumptions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Here are some of the design choices and assumptions made during this project:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1.  **API Mocking**: The contact data is hardcoded into the main `App.js` component's state. This mimics fetching data from an API on application load.
+2.  **State Management**: All state is managed within React using `useState`, `useMemo`, and `useEffect`. No external state management libraries were needed.
+3.  **Unique IDs**: When adding a new contact, a unique ID is generated using `Date.now()`. In a real-world application, this would be handled by the backend.
+4.  **UX for Validation**: I replaced disruptive `alert()` boxes with inline error messages under the respective input fields. This provides a much smoother user experience, guiding the user to fix errors without interrupting their flow.
+5.  **UX for Feedback**: I added a "toast" notification for success actions (like adding a contact). This gives the user clear confirmation that their action was completed.
+6.  **Styling**: I used a single `App.css` file for all styling. For a larger application, I would opt for CSS Modules or a styled-component library, but for this task, a single file is simpler to review.
+7.  **No Extra Libraries**: I used **only React** to demonstrate core framework skills.
